@@ -1,0 +1,205 @@
+:root {
+    --longLength: 250px;
+    --shortLength: 100px;
+    --contractedLength: 50px;
+    
+    --expandedBlueLeftLong: 500px;
+    --contractedBlueLeftLong: 700px;
+    --expandedBlueLeftShort: 650px;
+    --contractedBlueLeftShort: 700px;
+    
+    --expandedGreenTopLong: 20px;
+    --contractedGreenTopLong: 220px;
+    --expandedGreenTopShort: 170px;
+    --contractedGreenTopShort: 220px;
+    
+    --ballTopDefault: 290px;
+    --ballLeftDefault: 780px;
+    --ballSizeDefault: 50px;
+    --ballTopExploded: 195px;
+}
+
+div#wrapper {
+    width: 650px;
+    height: 650px;
+    margin: auto;
+}
+
+div#wrapper div {
+    position: absolute;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+div#blueLong {
+    width: var(--longLength);
+    height: 20px;
+    top: 330px;
+    left: var(--expandedBlueLeftLong);
+    background-color: #38C7F3;
+}
+
+div#blueLong:hover {
+    width: var(--contractedLength) !important;
+    left: var(--contractedBlueLeftLong) !important;
+}
+
+div#blueShort {
+    width: var(--shortLength);
+    height: 20px;
+    top: 290px;
+    left: var(--expandedBlueLeftShort);
+    background-color: #38C7F3;
+}
+
+div#blueShort:hover {
+    width: var(--contractedLength) !important;
+    left: var(--contractedBlueLeftShort) !important;
+}
+
+div#greenLong {
+    width: 20px;
+    height: var(--longLength);;
+    top: var(--expandedGreenTopLong);
+    left: 775px;
+    background-color: #30B681;
+}
+
+div#greenLong:hover {
+    height: var(--contractedLength) !important;
+    top: var(--contractedGreenTopLong) !important;
+}
+
+div#greenShort {
+    width: 20px;
+    height: var(--shortLength);
+    top: var(--expandedGreenTopShort);
+    left: 815px;
+    background-color: #30B681;
+}
+
+div#greenShort:hover {
+    height: var(--contractedLength) !important;
+    top: var(--contractedGreenTopShort) !important;
+}
+
+div#yellowLong {
+    width: var(--longLength);;
+    height: 20px;
+    top: 330px;
+    left: 860px;
+    background-color: #ECB32E;
+}
+
+div#yellowLong:hover {
+    width: var(--contractedLength) !important;
+}
+
+div#yellowShort {
+    width: var(--shortLength);
+    height: 20px;
+    top: 290px;
+    left: 860px;
+    background-color: #ECB32E;
+}
+
+div#yellowShort:hover {
+    width: var(--contractedLength) !important;
+}
+
+div#redLong {
+    width: 20px;
+    height: var(--longLength);
+    top: 365px;
+    left: 775px;
+    background-color: #E21E5C;
+}
+
+div#redLong:hover {
+    height: 50px !important;
+}
+
+div#redShort {
+    width: 20px;
+    height: var(--shortLength);
+    top: 365px;
+    left: 815px;
+    background-color: #E21E5C;
+}
+
+div#redShort:hover {
+    height: var(--contractedLength) !important;
+}
+
+div#ball {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto;
+    height: var(--ballSizeDefault);
+    width: var(--ballSizeDefault);
+    left: var(--ballLeftDefault);
+    top: var(--ballTopDefault);
+    border-radius: 40px;
+    transition: 0.2s;
+}
+
+div#ball:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+    transition: none;
+}
+
+div#ball:hover:after {
+  width: 120%;
+  background-color: rgba(255,255,255,0);
+  transition:  0.4s ease;
+}
+
+@keyframes bounce {
+    0% { top: var(--ballTopExploded) }
+    25% { top: 480px }
+    50% { top: 400px }
+    75% { top: 480px }
+    90% { top: 450px }
+    100% { top: 480px }
+}
+
+div#innerBallBlue {
+    background-color: #38C7F3;
+    border-top-left-radius: 100%;
+}
+
+div#innerBallGreen {
+    background-color: #30B681;
+    border-top-right-radius: 100%;
+}
+
+div#innerBallRed {
+    background-color: #E21E5C;
+    border-bottom-left-radius: 100%;
+}
+
+div#innerBallYellow {
+    background-color: #ECB32E;
+    border-bottom-right-radius: 100%;
+}
+
+div#controls {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+div#controls > input[type="button"] {
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    font-size: 18px;
+    font-size: 18px;
+    width: 125px;
+}
